@@ -1,0 +1,3 @@
+# Node.js-Module und Umgebungsdateien
+node_modules/
+.env

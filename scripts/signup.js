@@ -5,19 +5,23 @@ import {
   push,
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-/**
- * Firebase configuration object.
- * @type {Object}
- */
+// dotenv laden
+require("dotenv").config();
+
+// Firebase-Konfiguration aus Umgebungsvariablen
 const firebaseConfig = {
-  apiKey: "AIzaSyDqK-uqAFM-1r6-EwyKQjvymD6pAgjWgpY",
-  authDomain: "join-337-userlist.firebaseapp.com",
-  projectId: "join-337-userlist",
-  storageBucket: "join-337-userlist.appspot.com",
-  messagingSenderId: "742031210353",
-  appId: "1:742031210353:web:0829ecb28f78c0971868d0",
-  databaseURL: "https://join-judith-default-rtdb.firebaseio.com/",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  databaseURL: process.env.DATABASE_URL,
 };
+
+console.log("Firebase-Konfiguration:", firebaseConfig);
+
+// Die Config kannst du z. B. über eine API an den Client schicken
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
